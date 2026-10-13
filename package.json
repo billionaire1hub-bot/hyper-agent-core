@@ -1,0 +1,20 @@
+{
+  "name": "hyperagent",
+  "version": "1.0.0",
+  "private": true,
+  "description": "HyperAgent - autonomous Agent-to-Agent (A2A) network node with discovery loop, dynamic pricing/bargaining, and Whop payments.",
+  "workspaces": [
+    "lib",
+    "artifacts/api-server"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace=lib && npm run build --workspace=artifacts/api-server",
+    "typecheck": "npm run typecheck --workspace=lib && npm run typecheck --workspace=artifacts/api-server",
+    "start": "node artifacts/api-server/dist/index.js",
+    "dev": "npm run build && node artifacts/api-server/dist/index.js",
+    "test": "npm run build && node tests/core.test.js && node tests/integration.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
